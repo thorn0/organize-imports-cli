@@ -24,16 +24,22 @@ function main(filePaths) {
   console.log(chalk`{yellowBright Organizing imports...}`);
 
   const projects = {};
+  let adHocProjectCounter = 0;
 
   for (const filePath of filePaths) {
     const tsConfigFilePath = tsconfig.findSync(path.dirname(filePath));
 
     if (!tsConfigFilePath) {
-      console.error(chalk`{redBright Cannot find tsconfig.json for ${filePath}}`);
-      process.exit(2);
-    }
-
-    if (!projects[tsConfigFilePath]) {
+      const adHocProject = new Project({
+        manipulationSettings: getManipulationSettings(filePath),
+        compilerOptions: { allowJs: true }
+      });
+      adHocProject.addExistingSourceFile(filePath);
+      projects[adHocProjectCounter++] = {
+        filePaths: [filePath],
+        project: adHocProject
+      };
+    } else if (!projects[tsConfigFilePath]) {
       const manipulationSettings = getManipulationSettings(filePath);
       projects[tsConfigFilePath] = {
         filePaths: [filePath],
@@ -46,12 +52,9 @@ function main(filePaths) {
     }
   }
 
-  for (const [
-    tsConfigFilePath,
-    { filePaths, project, processAllFiles }
-  ] of Object.entries(projects)) {
-    console.log(chalk`{whiteBright Project:} ${tsConfigFilePath}`);
-
+  for (const { filePaths, project, processAllFiles } of Object.values(
+    projects
+  )) {
     const sourceFiles = processAllFiles
       ? project.getSourceFiles()
       : filePaths.map(filePath => project.getSourceFile(filePath));
