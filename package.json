@@ -1,6 +1,6 @@
 {
   "name": "organize-imports-cli",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "VS Code's 'Organize imports' executable from command line",
   "bin": "./cli.js",
   "repository": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "editorconfig": "^0.15.3",
-    "ts-morph": "^2.3.0",
+    "ts-morph": "^3.0.0",
     "tsconfig": "^7.0.0"
   }
 }

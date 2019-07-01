@@ -20,4 +20,6 @@ Plays nicely with Prettier and [lint-staged](https://github.com/okonet/lint-stag
 > organize-imports-cli files...
 ```
 
-Files can be specific `ts`-files or `tsconfig.json`, in which case the whole project is processed.
+Files can be specific `ts` and `js` files or `tsconfig.json`, in which case the whole project is processed.
+
+Files containing the substring `// organize-imports-ignore` are skipped.
