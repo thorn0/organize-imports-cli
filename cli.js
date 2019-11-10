@@ -20,8 +20,6 @@ if (process.argv.length < 3) {
   main(process.argv.slice(2));
 }
 
-
-
 function main(filePaths) {
   console.log(chalk`{yellowBright Organizing imports...}`);
 
@@ -99,9 +97,10 @@ function main(filePaths) {
     if (changeCounter > 0) {
       if (crLfWeight !== 0) {
         project.manipulationSettings.set({
-          newLineKind: crLfWeight > 0
-            ? NewLineKind.CarriageReturnLineFeed
-            : NewLineKind.LineFeed
+          newLineKind:
+            crLfWeight > 0
+              ? NewLineKind.CarriageReturnLineFeed
+              : NewLineKind.LineFeed
         });
       }
       project.saveSync();

@@ -2,7 +2,7 @@
 
 > VS Code's '[Organize imports](https://code.visualstudio.com/updates/v1_23#_javascript-and-typescript-organize-imports)' executable from command line
 
-Plays nicely with Prettier and [lint-staged](https://github.com/okonet/lint-staged):
+Plays nicely with [Prettier](https://prettier.io) and [lint-staged](https://github.com/okonet/lint-staged):
 
 ```json
 "lint-staged": {

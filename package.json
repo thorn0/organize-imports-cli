@@ -10,9 +10,17 @@
   "author": "Georgii Dolzhykov",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "editorconfig": "^0.15.3",
-    "ts-morph": "^3.0.0",
+    "ts-morph": "^5.0.0",
     "tsconfig": "^7.0.0"
+  },
+  "devDependencies": {
+    "escape-string-regexp": "^2.0.0",
+    "jest": "^24.9.0",
+    "strip-ansi": "^6.0.0"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

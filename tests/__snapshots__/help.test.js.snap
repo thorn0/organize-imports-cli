@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`--help (status) 1`] = `0`;
+
+exports[`--help (stderr) 1`] = `""`;
+
+exports[`--help (stdout) 1`] = `
+"
+Usage: organize-imports-cli files...
+
+Files can be specific ts and js files or tsconfig.json, in which case the whole project is processed.
+
+Files containing the substring \\"// organize-imports-ignore\\" are skipped.
+
+"
+`;
+
+exports[`--help (write) 1`] = `Array []`;
