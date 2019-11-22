@@ -17,9 +17,11 @@ Plays nicely with [Prettier](https://prettier.io) and [lint-staged](https://gith
 ## Usage
 
 ```console
-> organize-imports-cli files...
+> organize-imports-cli [--list-different] files...
 ```
 
 Files can be specific `ts` and `js` files or `tsconfig.json`, in which case the whole project is processed.
 
 Files containing the substring `// organize-imports-ignore` are skipped.
+
+The `--list-different` flag prints a list of files with unorganized imports. No files are modified.

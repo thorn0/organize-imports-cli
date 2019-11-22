@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`--list-different (status) 1`] = `2`;
+
+exports[`--list-different (stderr) 1`] = `""`;
+
+exports[`--list-different (stdout) 1`] = `
+"<dir>/file1.js
+"
+`;
+
+exports[`--list-different (write) 1`] = `Array []`;
