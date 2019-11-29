@@ -1,1 +1,2 @@
-tests/cli/**/*
+tests/cli/**/*.js
+tests/cli/**/*.ts

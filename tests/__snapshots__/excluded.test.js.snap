@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exclude in tsconfig (status) 1`] = `0`;
+
+exports[`exclude in tsconfig (stderr) 1`] = `""`;
+
+exports[`exclude in tsconfig (stdout) 1`] = `
+"Organizing imports...
+<dir>/included.ts/*CR*/
+<dir>/included.ts (modified)
+<dir>/excluded.ts/*CR*/
+<dir>/excluded.ts (modified)
+Done!
+"
+`;
+
+exports[`exclude in tsconfig (write) 1`] = `
+Array [
+  Object {
+    "content": "import { log } from \\"./util\\";
+
+log(\\"bar\\");
+",
+    "filename": "included.ts",
+  },
+  Object {
+    "content": "import { log } from \\"./util\\";
+
+log(\\"foo\\");
+",
+    "filename": "excluded.ts",
+  },
+]
+`;
