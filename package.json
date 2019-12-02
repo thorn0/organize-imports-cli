@@ -1,6 +1,6 @@
 {
   "name": "organize-imports-cli",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "VS Code's 'Organize imports' executable from command line",
   "bin": "./cli.js",
   "repository": {
@@ -21,6 +21,7 @@
     "strip-ansi": "^6.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc --checkJs --allowJs --noEmit --strict cli.js"
   }
 }
