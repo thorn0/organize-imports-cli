@@ -23,6 +23,8 @@ if (process.argv.length < 3) {
   );
 }
 
+/** @typedef { import('ts-morph').SourceFile } SourceFile */
+
 /**
  * @param {string[]} filePaths
  * @param {boolean} listDifferent
@@ -42,13 +44,12 @@ function main(filePaths, listDifferent) {
 
   /**
    * @type {Record<string, {
-   *   files: 'all' | import('ts-morph').SourceFile
+   *   files: 'all' | SourceFile[]
    *   project: import('ts-morph').Project,
    *   detectNewLineKind: boolean,
    * }>}
    */
   const projects = {};
-  let adHocProjectCounter = 0;
 
   for (const filePath of filePaths) {
     const tsConfigFilePath = tsconfig.findSync(path.dirname(filePath));
@@ -93,23 +94,29 @@ function main(filePaths, listDifferent) {
       }
     }
 
-    const adHocProject = new Project({
-      manipulationSettings,
-      compilerOptions: { allowJs: true }
-    });
+    const adHocProjectKey =
+      "\0" + JSON.stringify({ ...manipulationSettings, detectNewLineKind });
 
-    projects["\0" + adHocProjectCounter++] = {
-      files: [adHocProject.addExistingSourceFile(filePath)],
-      project: adHocProject,
-      detectNewLineKind
-    };
+    if (!projects[adHocProjectKey]) {
+      projects[adHocProjectKey] = {
+        files: [],
+        project: new Project({
+          manipulationSettings,
+          compilerOptions: { allowJs: true }
+        }),
+        detectNewLineKind
+      };
+    }
+
+    /** @type {SourceFile[]} */ (projects[adHocProjectKey].files).push(
+      projects[adHocProjectKey].project.addExistingSourceFile(filePath)
+    );
   }
 
   for (const { files, project, detectNewLineKind } of Object.values(projects)) {
     const sourceFiles = files === "all" ? project.getSourceFiles() : files;
-
-    let differentFiles = [],
-      crLfWeight = 0;
+    const differentFiles = [];
+    let crLfWeight = 0;
 
     for (const sourceFile of sourceFiles) {
       logger.write(chalk`{gray ${sourceFile.getFilePath()}}`);
@@ -164,6 +171,9 @@ function main(filePaths, listDifferent) {
   logger.writeLine(chalk`{yellowBright Done!}`);
 }
 
+/**
+ * @param {import('editorconfig').KnownProps} ec
+ */
 function getManipulationSettings(ec) {
   return {
     indentationText:
@@ -193,7 +203,7 @@ The {yellow --list-different} flag prints a list of files with unorganized impor
 }
 
 /**
- * @param {import('ts-morph').SourceFile} sourceFile
+ * @param {SourceFile} sourceFile
  */
 function serializeImports(sourceFile) {
   return sourceFile
