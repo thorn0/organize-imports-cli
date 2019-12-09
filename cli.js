@@ -109,7 +109,7 @@ function main(filePaths, listDifferent) {
     }
 
     /** @type {SourceFile[]} */ (projects[adHocProjectKey].files).push(
-      projects[adHocProjectKey].project.addExistingSourceFile(filePath)
+      projects[adHocProjectKey].project.addSourceFileAtPath(filePath)
     );
   }
 

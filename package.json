@@ -12,7 +12,7 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "editorconfig": "^0.15.3",
-    "ts-morph": "^5.0.0",
+    "ts-morph": "^6.0.2",
     "tsconfig": "^7.0.0"
   },
   "devDependencies": {
