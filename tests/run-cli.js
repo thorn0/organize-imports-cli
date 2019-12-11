@@ -103,7 +103,7 @@ function runCli(dir, args = [], options = {}) {
   const result = { status, stdout, stderr, write };
 
   const testResult = (testOptions = {}) => {
-    const dirRegExp = RegExp(`\\b${escapeStringRegexp(dir)}\\b`, "g");
+    const dirRegExp = RegExp(`^${escapeStringRegexp(dir)}\\b`, "gm");
     Object.keys(result).forEach(name => {
       test(`(${name})`, () => {
         const value =
