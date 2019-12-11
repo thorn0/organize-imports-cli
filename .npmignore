@@ -2,3 +2,4 @@ yarn.lock
 tests
 .vscode
 .prettierignore
+.travis.yml

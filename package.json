@@ -21,6 +21,7 @@
     "strip-ansi": "^6.0.0"
   },
   "scripts": {
+    "all-checks": "npm test && npm run typecheck",
     "test": "jest",
     "typecheck": "tsc --checkJs --allowJs --noEmit --strict cli.js"
   }
