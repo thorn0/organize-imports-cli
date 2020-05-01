@@ -8,8 +8,7 @@ Plays nicely with [Prettier](https://prettier.io) and [lint-staged](https://gith
 "lint-staged": {
   "*.ts": [
     "organize-imports-cli",
-    "prettier --write",
-    "git add"
+    "prettier --write"
   ]
 }
 ```
