@@ -73,7 +73,8 @@ function main(filePaths, listDifferent) {
     if (tsConfigFilePath && !projectEntry) {
       const project = new Project({ tsConfigFilePath, manipulationSettings });
 
-      if (path.basename(filePath).toLowerCase() === "tsconfig.json") {
+      const filename = path.basename(filePath).toLowerCase();
+      if (filename.match(/tsconfig(.*).json/g) !== null) {
         projects[tsConfigFilePath] = {
           files: "all",
           project,
