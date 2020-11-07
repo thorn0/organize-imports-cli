@@ -102,7 +102,12 @@ function main(filePaths, listDifferent) {
         files: [],
         project: new Project({
           manipulationSettings,
-          compilerOptions: { allowJs: true }
+          compilerOptions: {
+            allowJs: true,
+            isolatedModules: true
+          },
+          addFilesFromTsConfig: false,
+          skipFileDependencyResolution: true
         }),
         detectNewLineKind
       };
