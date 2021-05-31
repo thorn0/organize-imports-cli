@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/node": "^15.0.1",
     "escape-string-regexp": "^4.0.0",
-    "jest": "^26.0.1",
+    "jest": "^27.0.3",
     "strip-ansi": "^6.0.0"
   },
   "scripts": {
