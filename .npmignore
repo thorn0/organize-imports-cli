@@ -1,5 +1,6 @@
 yarn.lock
 tests
 .vscode
+.github
 .prettierignore
 .travis.yml
