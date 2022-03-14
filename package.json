@@ -10,7 +10,7 @@
   "author": "Georgii Dolzhykov",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.0.0",
+    "chalk": "^5.0.1",
     "editorconfig": "^0.15.3",
     "ts-morph": "^13.0.2",
     "tsconfig": "^7.0.0"
