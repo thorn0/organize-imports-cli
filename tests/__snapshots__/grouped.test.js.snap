@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`grouped imports (status) 1`] = `0`;
+
+exports[`grouped imports (stderr) 1`] = `""`;
+
+exports[`grouped imports (stdout) 1`] = `
+"Organizing imports...
+<dir>/file.js/*CR*/
+<dir>/file.js (modified)
+Done!
+"
+`;
+
+exports[`grouped imports (write) 1`] = `
+Array [
+  Object {
+    "content": "// fs
+import fs from \\"fs\\";
+// other
+import path from \\"path\\";
+import util from \\"util\\";
+
+console.log(path, fs, util);
+",
+    "filename": "file.js",
+  },
+]
+`;
