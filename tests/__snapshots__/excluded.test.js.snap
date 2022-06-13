@@ -19,16 +19,16 @@ Array [
   Object {
     "content": "import { log } from \\"./util\\";
 
-log(\\"bar\\");
+log(\\"foo\\");
 ",
-    "filename": "included.ts",
+    "filename": "excluded.ts",
   },
   Object {
     "content": "import { log } from \\"./util\\";
 
-log(\\"foo\\");
+log(\\"bar\\");
 ",
-    "filename": "excluded.ts",
+    "filename": "included.ts",
   },
 ]
 `;

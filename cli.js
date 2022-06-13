@@ -71,7 +71,7 @@ function main(filePaths, listDifferent) {
     const detectNewLineKind = !!ec.end_of_line;
 
     if (tsConfigFilePath && !projectEntry) {
-      const project = new Project({ tsConfigFilePath, manipulationSettings });
+      const project = new Project({ tsConfigFilePath, manipulationSettings, skipAddingFilesFromTsConfig: true });
 
       if (/^tsconfig.*\.json$/gi.test(path.basename(filePath))) {
         projects[tsConfigFilePath] = {
