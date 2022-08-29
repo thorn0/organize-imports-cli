@@ -16,7 +16,7 @@
     "tsconfig": "^7.0.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.35",
+    "@types/node": "^18.7.13",
     "escape-string-regexp": "^4.0.0",
     "jest": "^28.1.0",
     "strip-ansi": "^6.0.0"
