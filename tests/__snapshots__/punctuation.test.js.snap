@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with --ignore-punctuation (status) 1`] = `0`;
+
+exports[`with --ignore-punctuation (stderr) 1`] = `""`;
+
+exports[`with --ignore-punctuation (stdout) 1`] = `""`;
+
+exports[`with --ignore-punctuation (write) 1`] = `Array []`;
+
+exports[`without --ignore-punctuation (status) 1`] = `2`;
+
+exports[`without --ignore-punctuation (stderr) 1`] = `""`;
+
+exports[`without --ignore-punctuation (stdout) 1`] = `
+"<dir>/file1.js
+<dir>/file2.js
+"
+`;
+
+exports[`without --ignore-punctuation (write) 1`] = `Array []`;
