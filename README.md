@@ -24,3 +24,5 @@ Files can be specific `ts` and `js` files or `tsconfig[.*].json`, in which case 
 Files containing the substring `// organize-imports-ignore` are skipped.
 
 The `--list-different` flag prints a list of files with unorganized imports. No files are modified.
+
+When using `--list-different`, you can use `--ignore-punctuation` to not fail if there's only changes in punctuation.

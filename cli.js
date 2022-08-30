@@ -18,8 +18,9 @@ if (process.argv.length < 3) {
   printUsage();
 } else {
   main(
-    process.argv.slice(2).filter(arg => arg !== "--list-different"),
-    process.argv.includes("--list-different")
+    process.argv.slice(2).filter(arg => arg !== "--list-different" && arg !== "--ignore-punctuation"),
+    process.argv.includes("--list-different"),
+    process.argv.includes("--ignore-punctuation")
   );
 }
 
@@ -29,13 +30,15 @@ if (process.argv.length < 3) {
  * @param {string[]} filePaths
  * @param {boolean} listDifferent
  */
-function main(filePaths, listDifferent) {
-  const logger = listDifferent
+function main(filePaths, listDifferent, ignorePunctuation) {
+  const logger = 
+  listDifferent
     ? {
         write() {},
         writeLine() {}
       }
-    : {
+    :
+     {
         write: process.stdout.write.bind(process.stdout),
         writeLine: console.log.bind(console)
       };
@@ -138,7 +141,7 @@ function main(filePaths, listDifferent) {
 
       if (
         listDifferent
-          ? importsBefore === serializeImports(sourceFile)
+          ? differentImports(importsBefore, serializeImports(sourceFile), ignorePunctuation)
           : fullText === sourceFile.getFullText()
       ) {
         logger.writeLine("");
@@ -169,6 +172,15 @@ function main(filePaths, listDifferent) {
   }
 
   logger.writeLine(chalk`{yellowBright Done!}`);
+}
+
+function stripPunctuation(imports) {
+  return imports.replace(/;/g, "").replace(/,}/g,"}")
+}
+
+function differentImports(before, after, ignorePunctuation) {
+  if (!ignorePunctuation) return before === after
+  return stripPunctuation(before) === stripPunctuation(after)
 }
 
 /**
