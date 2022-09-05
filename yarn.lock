@@ -742,13 +742,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@ts-morph/common@~0.15.0":
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/@ts-morph/common/-/common-0.15.0.tgz#aece752746fc0d779d2acfaece95fb2c23327ba5"
-  integrity sha512-QefRbadcwfBnd3HWrltpjRJprHgeKfQsnbyGbRF8pEjMqISAljJwq4wfRETxxojsmN4GWuJv3PWG+W7kBIHMMw==
+"@ts-morph/common@~0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@ts-morph/common/-/common-0.17.0.tgz#de0d405df10857907469fef8d9363893b4163fd1"
+  integrity sha512-RMSSvSfs9kb0VzkvQ2NWobwnj7TxCA9vI/IjR9bDHqgAyVbu2T0DN4wiKVqomyDWqO7dPr/tErSfq7urQ1Q37g==
   dependencies:
     fast-glob "^3.2.11"
-    minimatch "^5.0.1"
+    minimatch "^5.1.0"
     mkdirp "^1.0.4"
     path-browserify "^1.0.1"
 
@@ -1076,12 +1076,10 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
-code-block-writer@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/code-block-writer/-/code-block-writer-11.0.0.tgz#5956fb186617f6740e2c3257757fea79315dd7d4"
-  integrity sha512-GEqWvEWWsOvER+g9keO4ohFoD3ymwyCnqY3hoTr7GZipYFwEhMHJw+TtV0rfgRhNImM6QWZGO2XYjlJVyYT62w==
-  dependencies:
-    tslib "2.3.1"
+code-block-writer@^11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/code-block-writer/-/code-block-writer-11.0.3.tgz#9eec2993edfb79bfae845fbc093758c0a0b73b76"
+  integrity sha512-NiujjUFB4SwScJq2bwbYUtXbZhBSlY6vYzm++3Q6oC+U+injTqfPYFK8wS9COOmb2lueqp0ZRB4nK1VYeHgNyw==
 
 collect-v8-coverage@^1.0.0:
   version "1.0.0"
@@ -1982,7 +1980,7 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimatch@^5.0.1:
+minimatch@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-5.1.0.tgz#1717b464f4971b144f6aabe8f2d0b8e4511e09c7"
   integrity sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==
@@ -2418,13 +2416,13 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-ts-morph@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/ts-morph/-/ts-morph-15.0.0.tgz#927a85d22909b95fa81e399c94fea655d98be514"
-  integrity sha512-OZkg0TI1h6FVe8DZXyBo6p7NfCN9EZZkkA736f243KzQ3cypYWtaLc9eyNn/JH/fWYfQ4d6wIA4oM0vElRTGcQ==
+ts-morph@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/ts-morph/-/ts-morph-16.0.0.tgz#35caca7c286dd70e09e5f72af47536bf3b6a27af"
+  integrity sha512-jGNF0GVpFj0orFw55LTsQxVYEUOCWBAbR5Ls7fTYE5pQsbW18ssTb/6UXx/GYAEjS+DQTp8VoTw0vqYMiaaQuw==
   dependencies:
-    "@ts-morph/common" "~0.15.0"
-    code-block-writer "^11.0.0"
+    "@ts-morph/common" "~0.17.0"
+    code-block-writer "^11.0.3"
 
 tsconfig@^7.0.0:
   version "7.0.0"
@@ -2435,11 +2433,6 @@ tsconfig@^7.0.0:
     "@types/strip-json-comments" "0.0.30"
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
-
-tslib@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
-  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
 type-detect@4.0.8:
   version "4.0.8"
