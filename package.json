@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.0.0",
-    "editorconfig": "^0.15.3",
+    "editorconfig": "^1.0.0",
     "ts-morph": "^15.0.0",
     "tsconfig": "^7.0.0"
   },
