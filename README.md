@@ -16,10 +16,17 @@ Plays nicely with [Prettier](https://prettier.io) and [lint-staged](https://gith
 ## Usage
 
 ```console
-> organize-imports-cli [--list-different] files...
+> organize-imports-cli [--list-different] paths...
 ```
 
-Files can be specific `ts` and `js` files or `tsconfig*.json`, in which case the whole project is processed.
+Each path is one of:
+
+- a `ts`/`js` file (and related extensions: `.tsx`, `.mts`, `.cts`, `.jsx`, `.mjs`, `.cjs`)
+- a `tsconfig*.json` — the whole project is processed
+- a directory — walked recursively for the extensions above
+- a glob pattern — e.g. `'src/**/*.ts'` (quote it so the shell doesn't expand it)
+
+Directory walks and glob patterns skip `node_modules`.
 
 Files containing the substring `// organize-imports-ignore` are skipped.
 

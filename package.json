@@ -1,6 +1,6 @@
 {
   "name": "organize-imports-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "VS Code's 'Organize imports' executable from command line",
   "bin": "./cli.js",
   "type": "module",

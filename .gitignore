@@ -1,4 +1,6 @@
 node_modules
+!tests/cli/globs/node_modules/
+!tests/cli/globs/node_modules/**
 .vscode
 .yarn/*
 !.yarn/patches

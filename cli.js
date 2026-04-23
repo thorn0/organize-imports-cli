@@ -91,15 +91,17 @@ function main(filePaths, listDifferent) {
 }
 
 /**
- * Expands any `tsconfig*.json` argument to the files it declares, tagged with
- * that tsconfig so its compiler options are used instead of ones rediscovered
- * by walking up from each file.
+ * Resolves each argument (tsconfig, file, directory, or glob) to files.
+ * Tsconfig entries are tagged so their compiler options are reused rather
+ * than rediscovered by walking up from each file.
  * @param {string[]} paths
  * @returns {Generator<{filePath: string, tsconfigPath?: string}>}
  */
 function* expandPaths(paths) {
   for (const p of paths) {
-    if (/^tsconfig.*\.json$/i.test(path.basename(p))) {
+    const isFile = ts.sys.fileExists(p);
+
+    if (isFile && /^tsconfig.*\.json$/i.test(path.basename(p))) {
       const { config } = ts.readConfigFile(p, ts.sys.readFile);
       const { fileNames, options } = ts.parseJsonConfigFileContent(
         config,
@@ -112,9 +114,26 @@ function* expandPaths(paths) {
         allowNonTsExtensions: true,
       });
       for (const filePath of fileNames) yield { filePath, tsconfigPath: p };
-    } else {
-      yield { filePath: p };
+      continue;
     }
+
+    if (isFile) {
+      yield { filePath: p };
+      continue;
+    }
+
+    const isDir = ts.sys.directoryExists(p);
+    const matches = ts.sys.readDirectory(
+      isDir ? p : ".",
+      [".ts", ".tsx", ".mts", ".cts", ".js", ".jsx", ".mjs", ".cjs"],
+      ["**/node_modules/**"],
+      isDir ? undefined : [p],
+    );
+    if (!isDir && matches.length === 0) {
+      console.error(`No files matching the pattern were found: ${p}`);
+      process.exit(1);
+    }
+    for (const filePath of matches) yield { filePath };
   }
 }
 
@@ -298,9 +317,15 @@ function serializeImports(text) {
 function printUsage() {
   const y = chalk.yellow;
   console.log(`
-Usage: organize-imports-cli [--list-different] files...
+Usage: organize-imports-cli [--list-different] paths...
 
-Files can be specific ${y("ts")} and ${y("js")} files or ${y("tsconfig*.json")}, in which case the whole project is processed.
+Each path is one of:
+  - a ${y("ts")}/${y("js")} file (and related extensions: .tsx, .mts, .cts, .jsx, .mjs, .cjs)
+  - a ${y("tsconfig*.json")} — the whole project is processed
+  - a directory — walked recursively for the extensions above
+  - a glob pattern — e.g. ${y("'src/**/*.ts'")} (quote it so the shell doesn't expand it)
+
+Directory walks and glob patterns skip ${y("node_modules")}.
 
 Files containing the substring "${y("// organize-imports-ignore")}" are skipped.
 
