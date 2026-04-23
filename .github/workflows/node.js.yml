@@ -15,7 +15,7 @@ jobs:
         node-version: [22.x, 24.x]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Enable Corepack
         run: corepack enable
       - name: Setup Node.js ${{ matrix.node-version }}
