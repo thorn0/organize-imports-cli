@@ -300,7 +300,7 @@ function printUsage() {
   console.log(`
 Usage: organize-imports-cli [--list-different] files...
 
-Files can be specific ${y("ts")} and ${y("js")} files or ${y("tsconfig.json")}, in which case the whole project is processed.
+Files can be specific ${y("ts")} and ${y("js")} files or ${y("tsconfig*.json")}, in which case the whole project is processed.
 
 Files containing the substring "${y("// organize-imports-ignore")}" are skipped.
 

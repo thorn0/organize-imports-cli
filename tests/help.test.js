@@ -13,7 +13,7 @@ test("--help prints usage", () => {
     `
 Usage: organize-imports-cli [--list-different] files...
 
-Files can be specific ts and js files or tsconfig.json, in which case the whole project is processed.
+Files can be specific ts and js files or tsconfig*.json, in which case the whole project is processed.
 
 Files containing the substring "// organize-imports-ignore" are skipped.
 
