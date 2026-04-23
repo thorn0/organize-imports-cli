@@ -267,10 +267,10 @@ function readFormatSettings(filePath, fileContent) {
 
   /** @type {ts.FormatCodeSettings} */
   const formatOptions = {
+    ...ts.getDefaultFormatCodeSettings(newLineCharacter),
     convertTabsToSpaces: ec.indent_style !== "tab",
     tabSize: tabWidth,
     indentSize: typeof ec.indent_size === "number" ? ec.indent_size : tabWidth,
-    newLineCharacter,
   };
 
   /** @type {ts.UserPreferences} */
