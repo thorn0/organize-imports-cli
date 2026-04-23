@@ -1,2 +1,5 @@
 tests/cli/**/*.js
 tests/cli/**/*.ts
+tests/cli/**/*.json
+.yarn/
+yarn.lock

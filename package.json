@@ -1,29 +1,33 @@
 {
   "name": "organize-imports-cli",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "description": "VS Code's 'Organize imports' executable from command line",
   "bin": "./cli.js",
+  "type": "module",
+  "files": [
+    "cli.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thorn0/organize-imports-cli.git"
   },
   "author": "Georgii Dolzhykov",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "dependencies": {
-    "chalk": "^4.0.0",
-    "editorconfig": "^0.15.3",
-    "ts-morph": "^15.0.0",
-    "tsconfig": "^7.0.0"
+    "chalk": "^5.6.2",
+    "editorconfig": "^3.0.2",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@types/node": "^17.0.35",
-    "escape-string-regexp": "^4.0.0",
-    "jest": "^28.1.0",
-    "strip-ansi": "^6.0.0"
+    "@types/node": "^25.6.0"
   },
   "scripts": {
     "all-checks": "yarn test && yarn run typecheck",
-    "test": "jest",
-    "typecheck": "tsc --checkJs --allowJs --noEmit --strict cli.js"
-  }
+    "test": "node --test \"tests/*.test.js\"",
+    "typecheck": "tsc --strict --checkJs --allowJs --noEmit --target es2022 --module nodenext --moduleResolution nodenext --skipLibCheck --types node cli.js"
+  },
+  "packageManager": "yarn@4.14.1"
 }
