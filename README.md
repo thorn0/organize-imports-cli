@@ -24,3 +24,7 @@ Files can be specific `ts` and `js` files or `tsconfig[.*].json`, in which case 
 Files containing the substring `// organize-imports-ignore` are skipped.
 
 The `--list-different` flag prints a list of files with unorganized imports. No files are modified.
+
+## Requirements
+
+Node.js ≥ 22.12.
